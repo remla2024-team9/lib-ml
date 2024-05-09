@@ -6,7 +6,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 tokenizer = Tokenizer(lower=True, char_level=True, oov_token='-n-')
 
-def tokenize_features(train_path, val_path, test_path, train_save_path, val_save_path, test_save_path):
+def tokenize_features(train_path, val_path, test_path, train_save_path, val_save_path, test_save_path, tokenizer_save_path):
     # Load url data
     with open(train_path, 'r', encoding="utf-8") as file:
         train_features = file.readlines()
@@ -29,10 +29,12 @@ def tokenize_features(train_path, val_path, test_path, train_save_path, val_save
     np.savetxt(val_save_path, x_val, fmt='%d')
     np.savetxt(test_save_path, x_test, fmt='%d')
 
+    save_tokenizer(tokenizer_save_path)
+
 
 def tokenize_url(url: str):
     """
-    Tokenizes the given url and returns it. load_tokenizer must be called before calling this function
+    Tokenizes the given url and returns it. `load_tokenizer` must be called before calling this function
     """
     return pad_sequences(tokenizer.texts_to_sequences([url]), maxlens=200)
 
@@ -48,8 +50,7 @@ def load_tokenizer(path):
 
 def save_tokenizer(path):
     """
-    Saves the tokenizer to `path`. tokenize_features() must be called
-    before calling this function
+    Saves the tokenizer to `path`. 
     """
     with open(path, 'wb', encoding="utf-8") as file:
         pickle.dump(tokenizer, file)    
