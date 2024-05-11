@@ -1,19 +1,17 @@
 [tool.poetry]
 name = "lib-ml"
 version = "0.1.0"
-description = "Contains the pre-processing logic for data that is used for training or queries."
+description = "A library for preprocessing ML data"
 authors = ["Your Name <you@example.com>"]
-readme = "README.md"
-package-mode = true
 
 [tool.poetry.dependencies]
-python = "~3.10"
-tensorflow = "2.10"
-tensorflow-io-gcs-filesystem = "0.27.0"
-numpy = "^1.26.4"
-scikit-learn = "^1.4.2"
+python = "^3.8"
+numpy = "^1.19.2"
+pandas = "^1.1.3"
 
+[tool.poetry.dev-dependencies]
+pytest = "^6.0"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
