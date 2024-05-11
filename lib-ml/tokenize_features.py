@@ -36,7 +36,7 @@ def tokenize_url(url: str):
     """
     Tokenizes the given url and returns it. `load_tokenizer` must be called before calling this function
     """
-    return pad_sequences(tokenizer.texts_to_sequences([url]), maxlens=200)
+    return pad_sequences(tokenizer.texts_to_sequences([url]), maxlen=200)
 
 
 def load_tokenizer(path):
