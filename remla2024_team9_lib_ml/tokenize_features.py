@@ -21,4 +21,3 @@ def tokenize_url(tokenizer, url, sequence_length=200):
     Tokenizes the given url using a pre-loaded tokenizer and returns the tokenized sequence.
     """
     return pad_sequences(tokenizer.texts_to_sequences([url]), maxlen=sequence_length)
-
