@@ -1,7 +1,7 @@
 # lib-ml
 Contains the pre-processing logic for data that is used for training or queries.
 
-## Release
+## Automated Release & Versioning
 
 1. Update the version number in `pyproject.toml`.
 
@@ -34,4 +34,10 @@ git tag vA.B.C
 git push origin vA.B.C
 ```
 
-The last action will trigger the automated release workflow. The workflow will create a new release with the version number.
+The last action will trigger the automated release workflow.
+
+## Implementation Details
+
+* To publish to PyPi, we created an API Token and added it to the GitHub repository secrets.
+* The token is stored in the `PYPI_API_TOKEN` secret.
+* The release worfklow fails if the you did not set the `pyproject.toml` version number to be the same as the tag version number.
